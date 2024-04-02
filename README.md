@@ -22,5 +22,5 @@ The goal of this project is to develop a predictive model for several diseases b
 - Navigate to the project directory: `cd Multiple-Disease-Prediction`
 - Install the required dependencies: 
      `pip install -r requirements.txt`
-- Run the Streamlit app: `streamlit run app/multiple_disease_pred.py`
+- Run the Streamlit app: `streamlit run app/multipledisease pred.py`
 - Access the web application by opening the provided URL in your browser.
