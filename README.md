@@ -1,4 +1,4 @@
-# Multiple Disease Prediction using Machine Learning and Streamlit App:-
+# Multiple Disease Prediction using ML and Streamlit:-
 - This repository holds a Machine Learning (ML) project that concentrates on forecasting various illnesses through a Streamlit web application. 
 - The project encompasses liver disease, lung cancer, breast cancer, heart disease, diabetes, Parkinson's disease, and kidney disease.
 
