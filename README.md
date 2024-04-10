@@ -8,7 +8,7 @@ The goal of this project is to develop a predictive model for several diseases b
 ## Technologies Used
 - Python
 - Machine Learning (ML) libraries (e.g., Scikit-learn,)
-- treamlit
+- Streamlit
 - Git and GitHub
 
 ## Project Structure
