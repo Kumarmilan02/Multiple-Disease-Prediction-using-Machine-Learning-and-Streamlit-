@@ -12,11 +12,8 @@ from streamlit_option_menu import option_menu
 
 
 # Set page configuration
-st.set_page_config(page_title="Health Assistant",
-                   layout="wide",
-                   page_icon="🧑‍⚕️")
+st.set_page_config(page_title="Health Assistant", layout="wide", page_icon="🧑‍⚕️")
 
-    
 
 # getting the working directory of the main.py
 working_dir = os.path.dirname(os.path.abspath(__file__))
@@ -24,110 +21,168 @@ working_dir = os.path.dirname(os.path.abspath(__file__))
 
 # loading the saved models
 
-diabetes_model = pickle.load(open('C:/Users/KIIT/Desktop/Multiple Disease Prediction System/saved model/diabetes_model.sav','rb'))
+diabetes_model = pickle.load(
+    open(
+        "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\saved model\\diabetes_model.sav",
+        "rb",
+    )
+)
 
-heart_disease_model = pickle.load(open('C:/Users/KIIT/Desktop/Multiple Disease Prediction System/saved model/heart_disease_model.sav','rb'))
+heart_disease_model = pickle.load(
+    open(
+        "D:\\2105208_PROGRAM\ML Project\\Multiple Disease Prediction System\\saved model\\heart_disease_model.sav",
+        "rb",
+    )
+)
 
-parkinsons_model = pickle.load(open('C:/Users/KIIT/Desktop/Multiple Disease Prediction System/saved model/parkinsons_model.sav','rb'))
+parkinsons_model = pickle.load(
+    open(
+        "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\saved model\\parkinsons_model.sav",
+        "rb",
+    )
+)
 
-breast_cancer = pickle.load(open("C:/Users/KIIT/Desktop/Multiple Disease Prediction System/saved model/breast_cancer.sav", 'rb'))
+breast_cancer = pickle.load(
+    open(
+        "D:\\2105208_PROGRAM\ML Project\\Multiple Disease Prediction System\\saved model\\breast_cancer.sav",
+        "rb",
+    )
+)
 
-lung_cancer = pickle.load(open("C:/Users/KIIT/Desktop/Multiple Disease Prediction System/saved model/lung_cancer_model.pkl", "rb"))
+lung_cancer = pickle.load(
+    open(
+        "D:\\2105208_PROGRAM\ML Project\\Multiple Disease Prediction System\\saved model\\lung_cancer_model.pkl",
+        "rb",
+    )
+)
 
-kidney_disease_model = pickle.load(open("C:/Users/KIIT/Desktop/Multiple Disease Prediction System/saved model/kidney_disease.sav",'rb'))
+kidney_disease_model = pickle.load(
+    open(
+        "D:\\2105208_PROGRAM\ML Project\\Multiple Disease Prediction System\\saved model\\kidney_disease.sav",
+        "rb",
+    )
+)
 
-liver_disease_model = pickle.load(open("C:/Users/KIIT/Desktop/Multiple Disease Prediction System/saved model/liver.sav",'rb'))
-
-
+liver_disease_model = pickle.load(
+    open(
+        "D:/2105208_PROGRAM/ML Project/Multiple Disease Prediction System/saved model/liver.sav",
+        "rb",
+    )
+)
 
 
 # sidebar for navigation
 with st.sidebar:
-    selected = option_menu('Multiple Disease Prediction System',
+    selected = option_menu(
+        "Multiple Disease Prediction System",
+        [
+            "Diabetes Prediction",
+            "Heart Disease Prediction",
+            "Parkinsons Prediction",
+            "Breast Cancer Prediction",
+            "Lung Cancer Prediction",
+            "Kideny Disease Prediction",
+            "Liver Disease Prediction",
+        ],
+        menu_icon="hospital-fill",
+        icons=[
+            "activity",
+            "heart",
+            "person",
+            "gender-female",
+            "lungs",
+            "virus",
+            "virus2",
+        ],
+        default_index=0,
+    )
 
-                           ['Diabetes Prediction',
-                            'Heart Disease Prediction',
-                            'Parkinsons Prediction',
-                            'Breast Cancer Prediction',
-                            "Lung Cancer Prediction",
-                            'Kideny Disease Prediction',
-                            'Liver Disease Prediction'],
-                           menu_icon='hospital-fill',
-                           icons=['activity', 'heart', 'person','gender-female',"lungs","virus",'virus2'],
-                           default_index=0)
-
-#icons name shown from https://icons.getbootstrap.com/
+# icons name shown from https://icons.getbootstrap.com/
 
 # Diabetes Prediction Page
-if selected == 'Diabetes Prediction':
+if selected == "Diabetes Prediction":
 
-    # page title
-    st.title('Diabetes Prediction using ML')
+    # Page title
+    st.title("Diabetes Prediction using ML")
 
-    # getting the input data from the user
+    # Getting the input data from the user
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        Pregnancies = st.text_input('Number of Pregnancies')
+        Pregnancies = st.text_input("Number of Pregnancies")
 
     with col2:
-        Glucose = st.text_input('Glucose Level')
+        Glucose = st.text_input("Plasma Glucose Concentration (2 hours after an oral glucose tolerance test)")
 
     with col3:
-        BloodPressure = st.text_input('Blood Pressure value')
+        BloodPressure = st.text_input("Diastolic Blood Pressure (mm Hg)")
 
     with col1:
-        SkinThickness = st.text_input('Skin Thickness value')
+        SkinThickness = st.text_input("Triceps Skin Fold Thickness (mm)")
 
     with col2:
-        Insulin = st.text_input('Insulin Level')
+        Insulin = st.text_input("2-Hour Serum Insulin (mu U/ml)")
 
     with col3:
-        BMI = st.text_input('BMI value')
+        BMI = st.text_input("Body Mass Index (weight in kg/(height in m)^2)")
 
     with col1:
-        DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
+        DiabetesPedigreeFunction = st.text_input("Diabetes Pedigree Function")
 
     with col2:
-        Age = st.text_input('Age of the Person')
+        Age = st.text_input("Age (years)")
 
+    # Code for Prediction
+    diab_diagnosis = ""
 
-    # code for Prediction
-    diab_diagnosis = ''
-
-    # creating a button for Prediction
-
-    if st.button('Diabetes Test Result'):
-
-        user_input = [Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin,BMI, DiabetesPedigreeFunction, Age]
-
-        user_input = [float(x) for x in user_input]
-
-        diab_prediction = diabetes_model.predict([user_input])
-
-        if diab_prediction[0] == 1:
-            diab_diagnosis = 'The person is diabetic'
+    # Creating a button for Prediction
+    if st.button("Diabetes Test Result"):
+        
+        # Check if any input is empty
+        if (not Pregnancies or not Glucose or not BloodPressure or not SkinThickness or 
+            not Insulin or not BMI or not DiabetesPedigreeFunction or not Age):
+            st.error("Please fill all the boxes before making a prediction.")
         else:
-            diab_diagnosis = 'The person is not diabetic'
+            try:
+                user_input = [
+                    float(Pregnancies),
+                    float(Glucose),
+                    float(BloodPressure),
+                    float(SkinThickness),
+                    float(Insulin),
+                    float(BMI),
+                    float(DiabetesPedigreeFunction),
+                    float(Age),
+                ]
 
-    st.success(diab_diagnosis)
+                diab_prediction = diabetes_model.predict([user_input])
+
+                if diab_prediction[0] == 1:
+                    diab_diagnosis = "The person is diabetic"
+                else:
+                    diab_diagnosis = "The person is not diabetic"
+
+                st.success(diab_diagnosis)
+
+            except ValueError:
+                st.error("Please enter valid numeric values in all fields.")
+
 
 # Heart Disease Prediction Page
 if selected == 'Heart Disease Prediction':
 
-    # page title
+    # Page title
     st.title('Heart Disease Prediction using ML')
-
     col1, col2, col3 = st.columns(3)
 
     with col1:
         age = st.text_input('Age')
 
     with col2:
-        sex = st.text_input('Sex')
+        sex = st.radio('Sex', options=[1, 0], index=0, format_func=lambda x: 'Male' if x == 1 else 'Female')
 
     with col3:
-        cp = st.text_input('Chest Pain types')
+        cp = st.radio('Chest Pain Types', options=[0, 1, 2, 3])
 
     with col1:
         trestbps = st.text_input('Resting Blood Pressure')
@@ -136,449 +191,507 @@ if selected == 'Heart Disease Prediction':
         chol = st.text_input('Serum Cholestoral in mg/dl')
 
     with col3:
-        fbs = st.text_input('Fasting Blood Sugar > 120 mg/dl')
+        fbs = st.radio('Fasting Blood Sugar > 120 mg/dl', options=[1, 0], index=1)
 
     with col1:
-        restecg = st.text_input('Resting Electrocardiographic results')
+        restecg = st.radio('Resting Electrocardiographic Results', options=[0, 1, 2])
 
     with col2:
-        thalach = st.text_input('Maximum Heart Rate achieved')
+        thalach = st.text_input('Maximum Heart Rate Achieved')
 
     with col3:
-        exang = st.text_input('Exercise Induced Angina')
+        exang = st.radio('Exercise Induced Angina', options=[1, 0], index=1)
 
     with col1:
-        oldpeak = st.text_input('ST depression induced by exercise')
+        oldpeak = st.text_input('ST Depression Induced by Exercise')
 
     with col2:
-        slope = st.text_input('Slope of the peak exercise ST segment')
+        slope = st.text_input('Slope of the Peak Exercise ST Segment')
 
     with col3:
-        ca = st.text_input('Major vessels colored by flourosopy')
+        ca = st.text_input('Major Vessels Colored by Flourosopy (0-3)')
 
     with col1:
-        thal = st.text_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
+        thal = st.radio('Thal', options=[0, 1, 2], index=0, format_func=lambda x: 'Normal' if x == 0 else ('Fixed Defect' if x == 1 else 'Reversible Defect'))
 
-    # code for Prediction
+    # Prediction and validation
     heart_diagnosis = ''
 
-    # creating a button for Prediction
-
     if st.button('Heart Disease Test Result'):
+        if all([age, trestbps, chol, thalach, oldpeak, slope, ca]):
+            user_input = [age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]
+            user_input = [float(x) for x in user_input]
 
-        user_input = [age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]
+            heart_prediction = heart_disease_model.predict([user_input])
 
-        user_input = [float(x) for x in user_input]
+            if heart_prediction[0] == 1:
+                heart_diagnosis = 'The person is having heart disease'
+            else:
+                heart_diagnosis = 'The person does not have any heart disease'
 
-        heart_prediction = heart_disease_model.predict([user_input])
-
-        if heart_prediction[0] == 1:
-            heart_diagnosis = 'The person is having heart disease'
+            st.success(heart_diagnosis)
         else:
-            heart_diagnosis = 'The person does not have any heart disease'
+            st.error('Please fill all the fields!')
 
-    st.success(heart_diagnosis)
 
 # Parkinson's Prediction Page
 if selected == "Parkinsons Prediction":
 
-    # page title
+    # Page title
     st.title("Parkinson's Disease Prediction using ML")
 
+    # Creating input fields for each parameter
     col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
-        fo = st.text_input('MDVP:Fo(Hz)')
-
+        fo = st.text_input("Average vocal fundamental frequency (MDVP:Fo(Hz))")
     with col2:
-        fhi = st.text_input('MDVP:Fhi(Hz)')
-
+        fhi = st.text_input("Maximum vocal fundamental frequency (MDVP:Fhi(Hz))")
     with col3:
-        flo = st.text_input('MDVP:Flo(Hz)')
-
+        flo = st.text_input("Minimum vocal fundamental frequency (MDVP:Flo(Hz))")
     with col4:
-        Jitter_percent = st.text_input('MDVP:Jitter(%)')
-
+        Jitter_percent = st.text_input("MDVP:Jitter(%) - Variation in fundamental frequency")
     with col5:
-        Jitter_Abs = st.text_input('MDVP:Jitter(Abs)')
+        Jitter_Abs = st.text_input("MDVP:Jitter(Abs) - Absolute variation in fundamental frequency")
 
     with col1:
-        RAP = st.text_input('MDVP:RAP')
-
+        RAP = st.text_input("MDVP:RAP - Relative Amplitude Perturbation")
     with col2:
-        PPQ = st.text_input('MDVP:PPQ')
-
+        PPQ = st.text_input("MDVP:PPQ - Five-Point Period Perturbation Quotient")
     with col3:
-        DDP = st.text_input('Jitter:DDP')
-
+        DDP = st.text_input("Jitter:DDP - Average absolute difference of differences between successive periods")
     with col4:
-        Shimmer = st.text_input('MDVP:Shimmer')
-
+        Shimmer = st.text_input("MDVP:Shimmer - Variation in amplitude")
     with col5:
-        Shimmer_dB = st.text_input('MDVP:Shimmer(dB)')
+        Shimmer_dB = st.text_input("MDVP:Shimmer(dB) - Logarithmic variation in amplitude")
 
     with col1:
-        APQ3 = st.text_input('Shimmer:APQ3')
-
+        APQ3 = st.text_input("Shimmer:APQ3 - Amplitude Perturbation Quotient over 3 cycles")
     with col2:
-        APQ5 = st.text_input('Shimmer:APQ5')
-
+        APQ5 = st.text_input("Shimmer:APQ5 - Amplitude Perturbation Quotient over 5 cycles")
     with col3:
-        APQ = st.text_input('MDVP:APQ')
-
+        APQ = st.text_input("MDVP:APQ - Amplitude Perturbation Quotient")
     with col4:
-        DDA = st.text_input('Shimmer:DDA')
-
+        DDA = st.text_input("Shimmer:DDA - Average absolute difference of differences between successive amplitudes")
     with col5:
-        NHR = st.text_input('NHR')
+        NHR = st.text_input("NHR - Noise-to-Harmonics Ratio")
 
     with col1:
-        HNR = st.text_input('HNR')
-
+        HNR = st.text_input("HNR - Harmonics-to-Noise Ratio")
     with col2:
-        RPDE = st.text_input('RPDE')
-
+        RPDE = st.text_input("RPDE - Recurrence Period Density Entropy")
     with col3:
-        DFA = st.text_input('DFA')
-
+        DFA = st.text_input("DFA - Signal fractal scaling exponent")
     with col4:
-        spread1 = st.text_input('spread1')
-
+        spread1 = st.text_input("spread1 - Nonlinear measure of fundamental frequency variation")
     with col5:
-        spread2 = st.text_input('spread2')
+        spread2 = st.text_input("spread2 - Nonlinear measure of fundamental frequency variation")
 
     with col1:
-        D2 = st.text_input('D2')
-
+        D2 = st.text_input("D2 - Nonlinear dynamical complexity measure")
     with col2:
-        PPE = st.text_input('PPE')
+        PPE = st.text_input("PPE - Pitch Period Entropy")
 
-    # code for Prediction
-    parkinsons_diagnosis = ''
+    # Code for Prediction
+    parkinsons_diagnosis = ""
 
-    # creating a button for Prediction    
+    # Creating a button for Prediction
     if st.button("Parkinson's Test Result"):
 
-        user_input = [fo, fhi, flo, Jitter_percent, Jitter_Abs,
-                      RAP, PPQ, DDP,Shimmer, Shimmer_dB, APQ3, APQ5,
-                      APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]
-
-        user_input = [float(x) for x in user_input]
-
-        parkinsons_prediction = parkinsons_model.predict([user_input])
-
-        if parkinsons_prediction[0] == 1:
-            parkinsons_diagnosis = "The person has Parkinson's disease"
+        # Check if all fields are filled
+        if any(field == "" for field in [fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ, DDP, Shimmer, Shimmer_dB, APQ3, APQ5, APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]):
+            st.warning("Please fill in all the boxes.")
         else:
-            parkinsons_diagnosis = "The person does not have Parkinson's disease"
+            # Convert inputs to float
+            user_input = [
+                float(fo),
+                float(fhi),
+                float(flo),
+                float(Jitter_percent),
+                float(Jitter_Abs),
+                float(RAP),
+                float(PPQ),
+                float(DDP),
+                float(Shimmer),
+                float(Shimmer_dB),
+                float(APQ3),
+                float(APQ5),
+                float(APQ),
+                float(DDA),
+                float(NHR),
+                float(HNR),
+                float(RPDE),
+                float(DFA),
+                float(spread1),
+                float(spread2),
+                float(D2),
+                float(PPE),
+            ]
 
-    st.success(parkinsons_diagnosis)
-    
-    
-    
+            # Make prediction
+            parkinsons_prediction = parkinsons_model.predict([user_input])
+
+            if parkinsons_prediction[0] == 1:
+                parkinsons_diagnosis = "The person has Parkinson's disease"
+            else:
+                parkinsons_diagnosis = "The person does not have Parkinson's disease"
+
+            st.success(parkinsons_diagnosis)
+
+
 # Breast Cancer Prediction Page:
+if selected == "Breast Cancer Prediction":
 
-
-if (selected == "Breast Cancer Prediction"):
-
-    # page title
+    # Page title
     st.title("Breast Cancer Prediction using ML")
 
-    # getting the input data from the user
-
+    # Getting the input data from the user
     col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
-        id = st.text_input("id")
+        id = st.text_input("ID Number")
 
     with col2:
-        radius_mean = st.text_input("radius_mean")
+        radius_mean = st.text_input("Radius Mean")
 
     with col3:
-        texture_mean = st.text_input("texture_mean")
+        texture_mean = st.text_input("Texture Mean")
 
     with col4:
-        perimeter_mean = st.text_input("perimeter_mean")
+        perimeter_mean = st.text_input("Perimeter Mean")
 
     with col5:
-        area_mean = st.text_input("area_mean")
+        area_mean = st.text_input("Area Mean")
 
     with col1:
-        smoothness_mean = st.text_input("smoothness_mean")
+        smoothness_mean = st.text_input("Smoothness Mean")
 
     with col2:
-        compactness_mean = st.text_input("compactness_mean")
+        compactness_mean = st.text_input("Compactness Mean")
 
     with col3:
-        concavity_mean = st.text_input("concavity_mean")
+        concavity_mean = st.text_input("Concavity Mean")
 
     with col4:
-        concave_points_mean = st.text_input("concave points_mean")
+        concave_points_mean = st.text_input("Concave Points Mean")
 
     with col5:
-        symmetry_mean = st.text_input("symmetry_mean")
+        symmetry_mean = st.text_input("Symmetry Mean")
 
     with col1:
-        fractal_dimension_mean = st.text_input("fractal_dimension_mean")
+        fractal_dimension_mean = st.text_input("Fractal Dimension Mean")
 
     with col2:
-        radius_se = st.text_input("radius_se")
+        radius_se = st.text_input("Radius SE")
 
     with col3:
-        texture_se = st.text_input("texture_se")
+        texture_se = st.text_input("Texture SE")
 
     with col4:
-        perimeter_se = st.text_input("perimeter_se")
+        perimeter_se = st.text_input("Perimeter SE")
 
     with col5:
-        area_se = st.text_input("area_se")
+        area_se = st.text_input("Area SE")
 
     with col1:
-        smoothness_se = st.text_input("smoothness_se")
+        smoothness_se = st.text_input("Smoothness SE")
 
     with col2:
-        compactness_se = st.text_input("compactness_se")
+        compactness_se = st.text_input("Compactness SE")
 
     with col3:
-        concavity_se = st.text_input("concavity_se")
+        concavity_se = st.text_input("Concavity SE")
 
     with col4:
-        concave_points_se = st.text_input("concave points_se")
+        concave_points_se = st.text_input("Concave Points SE")
 
     with col5:
-        symmetry_se = st.text_input("symmetry_se")
+        symmetry_se = st.text_input("Symmetry SE")
 
     with col1:
-        fractal_dimension_se = st.text_input("fractal_dimension_se")
+        fractal_dimension_se = st.text_input("Fractal Dimension SE")
 
     with col2:
-        radius_worst = st.text_input("radius_worst")
+        radius_worst = st.text_input("Radius Worst")
 
     with col3:
-        texture_worst = st.text_input("texture_worst")
+        texture_worst = st.text_input("Texture Worst")
 
     with col4:
-        perimeter_worst = st.text_input("perimeter_worst")
+        perimeter_worst = st.text_input("Perimeter Worst")
 
     with col5:
-        area_worst = st.text_input("area_worst")
+        area_worst = st.text_input("Area Worst")
 
     with col1:
-        smoothness_worst = st.text_input("smoothness_worst")
+        smoothness_worst = st.text_input("Smoothness Worst")
 
     with col2:
-        compactness_worst = st.text_input("compactness_worst")
+        compactness_worst = st.text_input("Compactness Worst")
 
     with col3:
-        concavity_worst = st.text_input("concavity_worst")
+        concavity_worst = st.text_input("Concavity Worst")
 
     with col4:
-        concave_points_worst = st.text_input("concave points_worst")
+        concave_points_worst = st.text_input("Concave Points Worst")
 
     with col5:
-        symmetry_worst = st.text_input("symmetry_worst")
+        symmetry_worst = st.text_input("Symmetry Worst")
 
     with col1:
-        fractal_dimension_worst = st.text_input("fractal_dimension_worst")
+        fractal_dimension_worst = st.text_input("Fractal Dimension Worst")
 
-    # code for Prediction
-    breast_cancer_check = " "
+    # Code for Prediction
+    breast_cancer_check = ""
 
     if st.button("Breast Cancer Test Result"):
-        user_input =[id, radius_mean, texture_mean, perimeter_mean, area_mean,
-                     smoothness_mean, compactness_mean, concavity_mean,
-                     concave_points_mean, symmetry_mean, fractal_dimension_mean,
-                     radius_se, texture_se, perimeter_se, area_se, smoothness_se,
-                     compactness_se, concavity_se, concave_points_se, symmetry_se,
-                     fractal_dimension_se, radius_worst, texture_worst,
-                     perimeter_worst, area_worst, smoothness_worst,
-                     compactness_worst, concavity_worst, concave_points_worst,
-                     symmetry_worst, fractal_dimension_worst]
+        user_input = [
+            radius_mean,
+            texture_mean,
+            perimeter_mean,
+            area_mean,
+            smoothness_mean,
+            compactness_mean,
+            concavity_mean,
+            concave_points_mean,
+            symmetry_mean,
+            fractal_dimension_mean,
+            radius_se,
+            texture_se,
+            perimeter_se,
+            area_se,
+            smoothness_se,
+            compactness_se,
+            concavity_se,
+            concave_points_se,
+            symmetry_se,
+            fractal_dimension_se,
+            radius_worst,
+            texture_worst,
+            perimeter_worst,
+            area_worst,
+            smoothness_worst,
+            compactness_worst,
+            concavity_worst,
+            concave_points_worst,
+            symmetry_worst,
+            fractal_dimension_worst,
+        ]
 
-        user_input = [float(x) for x in user_input]
-          
-        breast_cancer_prediction = breast_cancer.predict([user_input])
-          
-        if (breast_cancer_prediction[0] == 0):
-
-            breast_cancer_check = "Hurrah! You have Benign Breast Cancer."
+        # Check if all fields are filled
+        if any(x == "" for x in user_input):
+            st.error("Please fill all fields with valid numeric values.")
         else:
-            breast_cancer_check = "Sorry! You have Malignant Breast Cancer."
+            try:
+                # Convert to float
+                user_input = [float(x) for x in user_input]
+
+                # Make prediction
+                prediction = breast_cancer.predict([user_input])
+
+                if prediction[0] == 0:
+                    breast_cancer_check = "Hurrah! You have Benign Breast Cancer."
+                else:
+                    breast_cancer_check = "Sorry! You have Malignant Breast Cancer."
+            except ValueError:
+                st.error("Please ensure all inputs are numeric.")
 
     st.success(breast_cancer_check)
 
 
-    
-    
 # Lung Cancer Prediction Page:
+# Function to check if any input field is empty
+def check_empty_fields(inputs):
+    return any(x is None or x == '' for x in inputs)
 
+if selected == "Lung Cancer Prediction":
 
-
-if (selected == "Lung Cancer Prediction"):
-
-    # page title
+    # Page title
     st.title("Lung Cancer Prediction using ML")
 
-    # getting the input data from the user
+    # Getting the input data from the user
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-        AGE = st.text_input("AGE")
+        AGE = st.text_input("Age of the patient")
 
     with col2:
-        SMOKING = st.text_input("SMOKING")
+        SMOKING = st.radio("Smoking", options=["NO", "YES"])
 
     with col3:
-        YELLOW_FINGERS = st.text_input("YELLOW_FINGERS")
+        YELLOW_FINGERS = st.radio("Yellow fingers", options=["NO", "YES"])
 
     with col4:
-        ANXIETY = st.text_input("ANXIETY")
+        ANXIETY = st.radio("Anxiety", options=["NO", "YES"])
 
     with col1:
-        PEER_PRESSURE = st.text_input("PEER_PRESSURE")
+        PEER_PRESSURE = st.radio("Peer Pressure", options=["NO", "YES"])
 
     with col2:
-        CHRONIC_DISEASE = st.text_input("CHRONIC DISEASE")
+        CHRONIC_DISEASE = st.radio("Chronic Disease", options=["NO", "YES"])
 
     with col3:
-        FATIGUE = st.text_input("FATIGUE")
+        FATIGUE = st.radio("Fatigue", options=["NO", "YES"])
 
     with col4:
-        ALLERGY = st.text_input("ALLERGY")
+        ALLERGY = st.radio("Allergy", options=["NO", "YES"])
 
     with col1:
-        WHEEZING = st.text_input("WHEEZING")
+        WHEEZING = st.radio("Wheezing", options=["NO", "YES"])
 
     with col2:
-        ALCOHOL_CONSUMING = st.text_input("ALCOHOL CONSUMING")
+        ALCOHOL_CONSUMING = st.radio("Alcohol Consuming", options=["NO", "YES"])
 
     with col3:
-        COUGHING = st.text_input("COUGHING")
+        COUGHING = st.radio("Coughing", options=["NO", "YES"])
 
     with col4:
-        SHORTNESS_OF_BREATH = st.text_input("SHORTNESS OF BREATH")
+        SHORTNESS_OF_BREATH = st.radio("Shortness of Breath", options=["NO", "YES"])
 
     with col1:
-        SWALLOWING_DIFFICULTY = st.text_input("SWALLOWING DIFFICULTY")
+        SWALLOWING_DIFFICULTY = st.radio("Swallowing Difficulty", options=["NO", "YES"])
 
     with col2:
-        CHEST_PAIN = st.text_input("CHEST PAIN")
+        CHEST_PAIN = st.radio("Chest Pain", options=["NO", "YES"])
 
-    # code for Prediction
-    lung_cancer_result = " "
+    # Convert 'YES' to 2 and 'NO' to 1
+    def convert_input(value):
+        return 2 if value == "YES" else 1
 
-    # creating a button for Prediction
+    # Code for Prediction
+    lung_cancer_result = ""
 
+    # Creating a button for Prediction
     if st.button("Lung Cancer Test Result"):
-        user_input = [AGE, SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE,
-                      CHRONIC_DISEASE, FATIGUE, ALLERGY, WHEEZING, ALCOHOL_CONSUMING,
-                      COUGHING, SHORTNESS_OF_BREATH, SWALLOWING_DIFFICULTY, CHEST_PAIN]
-        
-        user_input = [float(x) for x in user_input]
+        user_input = [
+            AGE,
+            convert_input(SMOKING),
+            convert_input(YELLOW_FINGERS),
+            convert_input(ANXIETY),
+            convert_input(PEER_PRESSURE),
+            convert_input(CHRONIC_DISEASE),
+            convert_input(FATIGUE),
+            convert_input(ALLERGY),
+            convert_input(WHEEZING),
+            convert_input(ALCOHOL_CONSUMING),
+            convert_input(COUGHING),
+            convert_input(SHORTNESS_OF_BREATH),
+            convert_input(SWALLOWING_DIFFICULTY),
+            convert_input(CHEST_PAIN)
+        ]
 
-        lung_cancer_prediction = lung_cancer.predict([user_input])
-        
-        if (lung_cancer_prediction[0] == 0):
-            lung_cancer_result = "Hurrah! You have no Lung Cancer."
+        # Check if any field is empty
+        if check_empty_fields(user_input):
+            st.warning("Please fill all the fields.")
         else:
-            lung_cancer_result = "Sorry! You have Lung Cancer."
+            # Convert input to float (for age) and int (for other attributes)
+            try:
+                user_input[0] = float(user_input[0])  # Age needs to be a float
+            except ValueError:
+                st.warning("Please enter a valid number for Age.")
+                user_input[0] = 0
 
-    st.success(lung_cancer_result)
+            # Predict the result
+            lung_cancer_prediction = lung_cancer.predict([user_input])
+
+            if lung_cancer_prediction[0] == 1:
+                lung_cancer_result = "Hurrah! You have no Lung Cancer."
+            else:
+                lung_cancer_result = "Sorry! You have Lung Cancer."
+
+            st.success(lung_cancer_result)
 
 
-
-
-#kideny prediction page
-
-if (selected == "Kideny Disease Prediction"):
+# kideny prediction page
+def check_empty_fields(inputs):
+    return any(not x for x in inputs)
+if selected == "Kideny Disease Prediction":
 
     # page title
-    st.title("kidney Diseaser Prediction using ML")
+    st.title("Chronic kidney Diseaser Prediction using ML")
 
     # getting the input data from the user
-    col1, col2, col3, col4 ,col5= st.columns(5)
-#1
+    col1, col2, col3, col4, col5 = st.columns(5)
+    # 1
     with col1:
         ID = st.text_input("ID")
 
     with col2:
-        AGE = st.text_input("AGE")
+        Age = st.text_input("AGE")
 
     with col3:
         Blood_Pressure = st.text_input("Blood Pressure")
 
     with col4:
-       Urinary_specific_gravity = st.text_input("Urinary specific gravity")
+        Specific_Gravity = st.selectbox("Specific Gravity", ["1.005", "1.010", "1.015", "1.020", "1.025"])
 
     with col5:
-        al = st.text_input("al")
-#2
+        Albumin = st.selectbox("Albumin", ["0", "1", "2", "3", "4", "5"])
+
+    # 2 row
     with col1:
-        su = st.text_input("su")
+        Sugar = st.selectbox("Sugar", ["0", "1", "2", "3", "4", "5"])
 
     with col2:
-        rbc = st.text_input("Enter rbc value")
-        #st.write(rbc)
+        Red_Blood_Cells = st.selectbox("Red Blood Cells", ["normal", "abnormal"])
+        # st.write(rbc)
 
     with col3:
-        pc = st.text_input("pc")
-        st.write(pc)
+        Pus_Cell = st.selectbox("Pus Cell", ["normal", "abnormal"])
 
     with col4:
-       pcc = st.text_input("pcc")
-       st.write(pcc)
+        Pus_Cell_Clumps = st.selectbox("Pus Cell Clumps", ["present", "notpresent"])
 
     with col5:
-        ba = st.text_input("ba")
-        st.write(ba)
-#3
+        Bacteria = st.selectbox("Bacteria", ["present", "notpresent"])
+
+    # 3 row
     with col1:
-        bgr = st.text_input("bgr")
+        Blood_Glucose_Random = st.text_input("Blood Glucose Random")
 
     with col2:
-        bu = st.text_input("bu")
+        Blood_Urea = st.text_input("Blood Urea")
 
     with col3:
-        sc = st.text_input("sc")
+        Serum_Creatinine = st.text_input("Serum Creatinine")
 
     with col4:
-        sod = st.text_input("sod")
+        Sodium = st.text_input("Sodium")
 
     with col5:
-        pot = st.text_input("pot")
-#4        
+        Potassium = st.text_input("Potassium")
+    # 4
     with col1:
-        hemo = st.text_input("hemo")
+        Hemoglobin = st.text_input("Hemoglobin")
 
     with col2:
-        pcv = st.text_input("pcv")
+        Packed_Cell_Volume = st.text_input("Packed Cell Volume")
 
     with col3:
-        wc = st.text_input("wc")
+        White_Blood_Cell_Count = st.text_input("White Blood Cell Count")
 
     with col4:
-        rc = st.text_input("rc")
+        Red_Blood_Cell_Count = st.text_input("Red Blood Cell Count")
 
     with col5:
-        appet = st.text_input("appet")
-        #htn = st.radio("htn",['yes','no'])
-#5    
+        Hypertension = st.selectbox("Hypertension", ["yes", "no"])
+        # htn = st.radio("htn",['yes','no'])
+    # 5
     with col1:
-        dm = st.radio("dm", ["Yes", "No"])
+        Diabetes_Mellitus = st.selectbox("Diabetes Mellitus", ["yes", "no"])
 
     with col2:
-        cad = st.radio("cad", ["Yes", "No"])
+        Coronary_Artery_Disease = st.selectbox("Coronary Artery Disease", ["yes", "no"])
 
     with col3:
-        #appet = st.text_input("appet")
-        htn = st.radio("htn",['yes','no'])
+        # appet = st.text_input("appet")
+        Appetite = st.selectbox("Appetite", ["good", "poor"])
 
     with col4:
-        pe = st.radio("pe", ["Yes", "No"])
+        Pedal_Edema = st.selectbox("Pedal Edema", ["yes", "no"])
 
     with col5:
-        ane = st.radio("ane", ["Yes", "No"])
-    
+        Anemia = st.selectbox("Anemia", ["yes", "no"])
 
     # code for Prediction
     kidney_disease_result = " "
@@ -586,85 +699,128 @@ if (selected == "Kideny Disease Prediction"):
     # creating a button for Prediction
 
     if st.button("Kidney Test Result"):
-        kidney_disease_report = [ID,AGE,Blood_Pressure,Urinary_specific_gravity,al,
-                                                   su,rbc,pc,pcc,ba,
-                                                   bgr,bu,sc,sod,pot,
-                                                   hemo,pcv,wc,rc,htn,
-                                                   dm,cad,appet,pe,ane,classification]
-        kidney_disease_report = [float(x) for x in  kidney_disease_report]
-        
-        kidney_prediction = kidney_disease_model.predict([kidney_disease_report])
 
+        user_input = [
+            ID,Age, Blood_Pressure, Specific_Gravity, Albumin, Sugar, Red_Blood_Cells,
+            Pus_Cell, Pus_Cell_Clumps, Bacteria, Blood_Glucose_Random, Blood_Urea,
+            Serum_Creatinine, Sodium, Potassium, Hemoglobin, Packed_Cell_Volume,
+            White_Blood_Cell_Count, Red_Blood_Cell_Count, Hypertension, Diabetes_Mellitus,
+            Coronary_Artery_Disease, Appetite, Pedal_Edema, Anemia
+        ]
 
-        if (kidney_prediction[0] == 0):
-            kidney_disease_result = "Hurrah! You have no kindey disease."
+        if check_empty_fields(user_input):
+            st.warning("Please fill all the fields to make a prediction.")
         else:
-            kidney_disease_result = "Sorry! You have kidney disease."
+            user_input_float = []
+            for value in user_input:
+                try:
+                    user_input_float.append(float(value))
+                except ValueError:
+                    # For categorical fields
+                    if value == "yes":
+                        user_input_float.append(1)
+                    elif value == "no":
+                        user_input_float.append(0)
+                    elif value == "present":
+                        user_input_float.append(1)
+                    elif value == "notpresent":
+                        user_input_float.append(0)
+                    elif value == "good":
+                        user_input_float.append(1)
+                    elif value == "poor":
+                        user_input_float.append(0)
+                    elif value == "normal":
+                        user_input_float.append(0)
+                    elif value == "abnormal":
+                        user_input_float.append(1)
+                    else:
+                        user_input_float.append(float(value))
 
-    st.success(kidney_disease_result)
+        # Predict the result
+            kidney_prediction = kidney_disease_model.predict([user_input_float])
+
+            if kidney_prediction[0] == 0:
+                kidney_disease_result = "Hurrah! You have no kidney disease."
+            else:
+                kidney_disease_result = "Sorry! You have kidney disease."
+
+            st.success(kidney_disease_result)
 
 
+# LIVER DISEASE PREDICTION
+def check_empty_fields(inputs):
+    return any(not x for x in inputs)
 
-#LIVER DISEASE PREDICTION
+if selected == "Liver Disease Prediction":
 
-if selected == 'Liver Disease Prediction':
-
-    # page title
-    st.title('Liver Disease Prediction using ML')
+    # Page title
+    st.title("Liver Disease Prediction using ML")
 
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        Age = st.text_input('Age')
+        Age = st.text_input("Age")
 
     with col2:
         Gender = st.radio("Gender", ["Male", "Female"])
 
     with col3:
-        Total_Bilirubin = st.text_input('Total_Bilirubin')
+        Total_Bilirubin = st.text_input("Total_Bilirubin")
 
     with col1:
-        Direct_Bilirubin = st.text_input('Direct_Bilirubin')
+        Direct_Bilirubin = st.text_input("Direct_Bilirubin")
 
     with col2:
-        Alkaline_Phosphotase = st.text_input('Alkaline_Phosphotase')
+        Alkaline_Phosphotase = st.text_input("Alkaline_Phosphotase")
 
     with col3:
-        Alamine_Aminotransferase = st.text_input('Alamine_Aminotransferase')
+        Alamine_Aminotransferase = st.text_input("Alamine_Aminotransferase")
 
     with col1:
-        Aspartate_Aminotransferase = st.text_input('Aspartate_Aminotransferase')
+        Aspartate_Aminotransferase = st.text_input("Aspartate_Aminotransferase")
 
     with col2:
-        Total_Protiens = st.text_input('Total_Protiens')
+        Total_Protiens = st.text_input("Total_Protiens")
 
     with col3:
-        Albumin = st.text_input('Albumin')
+        Albumin = st.text_input("Albumin")
 
     with col1:
-        Albumin_and_Globulin_Ratio = st.text_input('Albumin_and_Globulin_Ratio')
+        Albumin_and_Globulin_Ratio = st.text_input("Albumin_and_Globulin_Ratio")
 
-    # code for Prediction 
-    liver_diagnosis = ' '
+    # Code for Prediction
+    liver_diagnosis = ""
 
-    # creating a button for Prediction
-    if st.button('Liver Disease Test Result'):
+    # Creating a button for Prediction
+    if st.button("Liver Disease Test Result"):
 
-        user_input = [Age, Gender, Total_Bilirubin, Direct_Bilirubin, Alkaline_Phosphotase, Alamine_Aminotransferase, Aspartate_Aminotransferase, Total_Protiens, Albumin, Albumin_and_Globulin_Ratio]
+        user_input = [
+            Age,
+            Gender,
+            Total_Bilirubin,
+            Direct_Bilirubin,
+            Alkaline_Phosphotase,
+            Alamine_Aminotransferase,
+            Aspartate_Aminotransferase,
+            Total_Protiens,
+            Albumin,
+            Albumin_and_Globulin_Ratio,
+        ]
 
-        # Exclude 'Gender' from user_input
-        user_input_without_gender = user_input[:1] + user_input[2:]
-
-        # Convert numerical inputs to float
-        user_input_float = [float(x) for x in user_input_without_gender]
-
-        liver_prediction = liver_disease_model.predict([user_input_float])
-
-        #liver_prediction = liver_disease_model.predict([user_input])
-
-        if liver_prediction[0] == 1:
-            liver_diagnosis = 'The person is having liver disease'
+        # Check if any field is empty
+        if check_empty_fields(user_input):
+            st.warning("Please fill all the fields to make a prediction.")
         else:
-            liver_diagnosis = 'The person does not have any liver disease'
+            # Convert numerical inputs to float
+            user_input_without_gender = user_input[:1] + user_input[2:]  # Exclude 'Gender'
+            user_input_float = [float(x) for x in user_input_without_gender]
 
-        st.success(liver_diagnosis)  # Correct indentation for this line
+            # Predict the result
+            liver_prediction = liver_disease_model.predict([user_input_float])
+
+            if liver_prediction[0] == 1:
+                liver_diagnosis = "The person is having liver disease."
+            else:
+                liver_diagnosis = "The person does not have any liver disease."
+
+            st.success(liver_diagnosis)
