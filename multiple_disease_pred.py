@@ -14,62 +14,6 @@ from streamlit_option_menu import option_menu
 # Set page configuration
 st.set_page_config(page_title="Health Assistant", layout="wide", page_icon="🧑‍⚕️")
 
-
-# getting the working directory of the main.py
-# working_dir = os.path.dirname(os.path.abspath(__file__))
-
-
-# loading the saved models
-"""
-diabetes_model = pickle.load(
-    open(
-        "Desktop//Multiple_Disease_Prediction_System//saved_model//diabetes_model.sav",
-        "rb",
-    )
-)
-
-heart_disease_model = pickle.load(
-    open(
-        "Desktop//Multiple_Disease_Prediction_System//saved_model//heart_disease_model.sav",
-        "rb",
-    )
-)
-
-parkinsons_model = pickle.load(
-    open(
-        "Desktop//Multiple_Disease_Prediction_System//saved_model//parkinsons_model.sav",
-        "rb",
-    )
-)
-
-breast_cancer = pickle.load(
-    open(
-        "Desktop//Multiple_Disease_Prediction_System//saved_model//breast_cancer.sav",
-        "rb",
-    )
-)
-
-lung_cancer = pickle.load(
-    open(
-        "Desktop//Multiple_Disease_Prediction_System//saved_model//lung_cancer_model.pkl",
-        "rb",
-    )
-)
-
-kidney_disease_model = pickle.load(
-    open(
-        "Desktop//Multiple_Disease_Prediction_System//saved_model//kidney_disease.sav",
-        "rb",
-    )
-)
-
-liver_disease_model = pickle.load(
-    open(
-        "Desktop//Multiple_Disease_Prediction_System//saved_model//liver.sav",
-        "rb",
-    )
-)
-"""
 # Get the working directory of the current script
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
