@@ -2,6 +2,9 @@
 - This repository holds a Machine Learning (ML) project that concentrates on forecasting various illnesses through a Streamlit web application. 
 - The project encompasses liver disease, lung cancer, breast cancer, heart disease, diabetes, Parkinson's disease, and kidney disease.
 
+## Live Demo
+You can access the live application [here](https://healthpredictor.streamlit.app/).
+
 ## Introduction:-
 The goal of this project is to develop a predictive model for several diseases based on relevant medical data.By leveraging ML techniques and building a user-friendly interface with Streamlit, users can input their medical information and receive predictions about their potential risk or diagnosis of these diseases.
 
