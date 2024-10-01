@@ -23,49 +23,49 @@ working_dir = os.path.dirname(os.path.abspath(__file__))
 
 diabetes_model = pickle.load(
     open(
-        "Desktop/Multiple_Disease_Prediction_System/saved_model/diabetes_model.sav",
+        "Desktop//Multiple_Disease_Prediction_System//saved_model//diabetes_model.sav",
         "rb",
     )
 )
 
 heart_disease_model = pickle.load(
     open(
-        "Desktop/Multiple_Disease_Prediction_System/saved_model/heart_disease_model.sav",
+        "Desktop//Multiple_Disease_Prediction_System//saved_model//heart_disease_model.sav",
         "rb",
     )
 )
 
 parkinsons_model = pickle.load(
     open(
-        "Desktop/Multiple_Disease_Prediction_System/saved_model/parkinsons_model.sav",
+        "Desktop//Multiple_Disease_Prediction_System//saved_model//parkinsons_model.sav",
         "rb",
     )
 )
 
 breast_cancer = pickle.load(
     open(
-        "Desktop/Multiple_Disease_Prediction_System/saved_model/breast_cancer.sav",
+        "Desktop//Multiple_Disease_Prediction_System//saved_model//breast_cancer.sav",
         "rb",
     )
 )
 
 lung_cancer = pickle.load(
     open(
-        "Desktop/Multiple_Disease_Prediction_System/saved_model/lung_cancer_model.pkl",
+        "Desktop//Multiple_Disease_Prediction_System//saved_model//lung_cancer_model.pkl",
         "rb",
     )
 )
 
 kidney_disease_model = pickle.load(
     open(
-        "Desktop/Multiple_Disease_Prediction_System/saved_model/kidney_disease.sav",
+        "Desktop//Multiple_Disease_Prediction_System//saved_model//kidney_disease.sav",
         "rb",
     )
 )
 
 liver_disease_model = pickle.load(
     open(
-        "Desktop/Multiple_Disease_Prediction_System/saved_model/liver.sav",
+        "Desktop//Multiple_Disease_Prediction_System//saved_model//liver.sav",
         "rb",
     )
 )
