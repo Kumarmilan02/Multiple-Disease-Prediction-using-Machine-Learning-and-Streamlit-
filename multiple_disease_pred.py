@@ -16,11 +16,11 @@ st.set_page_config(page_title="Health Assistant", layout="wide", page_icon="🧑
 
 
 # getting the working directory of the main.py
-working_dir = os.path.dirname(os.path.abspath(__file__))
+# working_dir = os.path.dirname(os.path.abspath(__file__))
 
 
 # loading the saved models
-
+"""
 diabetes_model = pickle.load(
     open(
         "Desktop//Multiple_Disease_Prediction_System//saved_model//diabetes_model.sav",
@@ -69,7 +69,41 @@ liver_disease_model = pickle.load(
         "rb",
     )
 )
+"""
+# Get the working directory of the current script
+working_dir = os.path.dirname(os.path.abspath(__file__))
 
+# Define the path to the models
+models_dir = os.path.join(working_dir, "DatasetModel")  # Adjust the directory name if needed
+
+# Loading the saved models
+diabetes_model = pickle.load(
+    open(os.path.join(models_dir, "diabetes_model.sav"), "rb")
+)
+
+heart_disease_model = pickle.load(
+    open(os.path.join(models_dir, "heart_disease_model.sav"), "rb")
+)
+
+parkinsons_model = pickle.load(
+    open(os.path.join(models_dir, "parkinsons_model.sav"), "rb")
+)
+
+breast_cancer = pickle.load(
+    open(os.path.join(models_dir, "breast_cancer.sav"), "rb")
+)
+
+lung_cancer = pickle.load(
+    open(os.path.join(models_dir, "lung_cancer_model.pkl"), "rb")
+)
+
+kidney_disease_model = pickle.load(
+    open(os.path.join(models_dir, "kidney_disease.sav"), "rb")
+)
+
+liver_disease_model = pickle.load(
+    open(os.path.join(models_dir, "liver.sav"), "rb")
+)
 
 # sidebar for navigation
 with st.sidebar:
