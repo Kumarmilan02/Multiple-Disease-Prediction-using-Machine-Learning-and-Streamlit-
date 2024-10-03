@@ -339,13 +339,6 @@ if selected == 'Heart Disease Prediction':
             width=animation_width,
             height=animation_height,
         )
-    '''
-    heart_disease_model = pickle.load(
-        open(
-            "D:\\2105208_PROGRAM\ML Project\\Multiple Disease Prediction System\\saved model\\heart_disease_model.sav",
-            "rb",
-        )
-    ) '''
     st.title("Heart Disease Assessment")
     # Create Tabs
     tab1, tab2, tab3 = st.tabs(["About", "Make Prediction", "Remedies"])
@@ -966,13 +959,6 @@ if selected == "Lung Cancer Prediction":
             width=animation_width,
             height=animation_height,
         )
-    '''
-    lung_cancer = pickle.load(
-        open(
-            "D:\\2105208_PROGRAM\ML Project\\Multiple Disease Prediction System\\saved model\\lung_cancer_model.pkl",
-            "rb",
-        )
-    ) '''
     st.title(" Lungs Cancer Assessment")
     # Create Tabs
     tab1, tab2, tab3 = st.tabs(["About", "Make Prediction", "Remedies"])
