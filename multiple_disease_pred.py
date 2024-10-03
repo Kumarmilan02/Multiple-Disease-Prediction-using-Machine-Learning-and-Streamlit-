@@ -679,7 +679,7 @@ if selected == "Breast Cancer Prediction":
 
     # Left, middle, and right Lottie animation URLs
     left_animation_url = ("https://lottie.host/2b059688-42d5-4384-b794-6044945177bb/WkbDVniQ1L.json")
-    middle_animation_url = ("https://lottie.host/20964f4c-483a-4349-a93b-9b417c6f20c7/mPKJTJllTE.json")
+    middle_animation_url = ("https://lottie.host/93b960d1-a273-42b1-89c9-06d6f9fff12a/61VI2eKIkW.json")
     right_animation_url = ("https://lottie.host/2b059688-42d5-4384-b794-6044945177bb/WkbDVniQ1L.json")  # Same as middle
 
     # Create a flex container using Streamlit's layout
@@ -1117,9 +1117,9 @@ if selected == "Kideny Disease Prediction":
         return None
 
     # Left, middle, and right Lottie animation URLs
-    left_animation_url = ("https://lottie.host/4ab409b6-8297-4161-9c0d-c531ab8b39a9/agpua2BZms.json")
+    left_animation_url = ("https://lottie.host/e873ba17-6e3d-43ae-9837-a64c547203fb/WoCYefuzii.json")
     middle_animation_url = ("https://lottie.host/013e6b24-f875-438a-aff2-89a6a3af740f/Ohp4akijMn.json")
-    right_animation_url = ("https://lottie.host/4ab409b6-8297-4161-9c0d-c531ab8b39a9/agpua2BZms.json")  # Same as middle
+    right_animation_url = ("https://lottie.host/e873ba17-6e3d-43ae-9837-a64c547203fb/WoCYefuzii.json")  # Same as middle
 
     # Create a flex container using Streamlit's layout
     col1, col2, col3 = st.columns(3)  # 3 equal columns
@@ -1338,9 +1338,9 @@ if selected == "Liver Disease Prediction":
         return None
 
     # Left, middle, and right Lottie animation URLs
-    left_animation_url = ("https://lottie.host/4ab409b6-8297-4161-9c0d-c531ab8b39a9/agpua2BZms.json")
+    left_animation_url = ("https://lottie.host/efbc8109-b2e2-4ee4-953d-cc9903662538/dhtgzVSIlf.json")
     middle_animation_url = ("https://lottie.host/18e403f1-9b95-4fad-84b2-ac6a671b8f46/BO3sgj2RXo.json")
-    right_animation_url = ("https://lottie.host/4ab409b6-8297-4161-9c0d-c531ab8b39a9/agpua2BZms.json")  # Same as middle
+    right_animation_url = ("https://lottie.host/efbc8109-b2e2-4ee4-953d-cc9903662538/dhtgzVSIlf.json") 
 
     # Create a flex container using Streamlit's layout
     col1, col2, col3 = st.columns(3)  # 3 equal columns
