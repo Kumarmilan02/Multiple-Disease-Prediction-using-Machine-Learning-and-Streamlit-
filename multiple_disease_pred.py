@@ -10,6 +10,7 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 from streamlit_lottie import st_lottie
+import joblib
 import base64
 import requests
 from joblib import load
