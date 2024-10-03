@@ -9,10 +9,48 @@ import os
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
-
+from streamlit_lottie import st_lottie
+import base64
+from joblib import load
 
 # Set page configuration
 st.set_page_config(page_title="Health Assistant", layout="wide", page_icon="🧑‍⚕️")
+
+# Function to load Lottie animations from a URL
+def load_lottie_url(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+# Load animations for the "Welcome" text
+lottie_left = load_lottie_url("https://lottie.host/22289fa4-1f2d-4e6f-9519-b401a851646c/A9C8Brwsy6.json")
+lottie_middle = load_lottie_url("https://lottie.host/05a0c3b0-871a-462b-8a6a-499b40b9bff3/bkBd4NpFTZ.json")
+lottie_right = load_lottie_url("https://lottie.host/22289fa4-1f2d-4e6f-9519-b401a851646c/A9C8Brwsy6.json")
+
+# Set page configuration
+st.set_page_config(page_title="Health Predictor", page_icon="⚕️", layout="wide")
+
+# Create animation for the welcome message
+def display_welcome():
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column sizes as needed
+    with col1:
+        st_lottie(lottie_left, height=150, key="left")
+    with col2:
+        st_lottie(lottie_middle, height=150, key="middle")
+    with col3:
+        st_lottie(lottie_right, height=150, key="right")
+    
+    st.markdown(
+        """
+        <div style="text-align:center; font-size:50px; font-weight:bold;">
+            Welcome to Health Predictor
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.markdown("---")
+
 
 # Get the working directory of the current script
 working_dir = os.path.dirname(os.path.abspath(__file__))
@@ -22,31 +60,31 @@ models_dir = os.path.join(working_dir, "DatasetModel")  # Adjust the directory n
 
 # Loading the saved models
 diabetes_model = pickle.load(
-    open(os.path.join(models_dir, "diabetes_model.sav"), "rb")
+    open(os.path.join(models_dir, "diabetes_model.joblib"), "rb")
 )
 
 heart_disease_model = pickle.load(
-    open(os.path.join(models_dir, "heart_disease_model.sav"), "rb")
+    open(os.path.join(models_dir, "heart_disease_model.joblib"), "rb")
 )
 
 parkinsons_model = pickle.load(
-    open(os.path.join(models_dir, "parkinsons_model.sav"), "rb")
+    open(os.path.join(models_dir, "parkinsons_model.joblib"), "rb")
 )
 
 breast_cancer = pickle.load(
-    open(os.path.join(models_dir, "breast_cancer.sav"), "rb")
+    open(os.path.join(models_dir, "breast_cancer.joblib"), "rb")
 )
 
 lung_cancer = pickle.load(
-    open(os.path.join(models_dir, "lung_cancer_model.pkl"), "rb")
+    open(os.path.join(models_dir, "lung_cancer_model.joblib"), "rb")
 )
 
 kidney_disease_model = pickle.load(
-    open(os.path.join(models_dir, "kidney_disease.sav"), "rb")
+    open(os.path.join(models_dir, "kidney_disease.joblib"), "rb")
 )
 
 liver_disease_model = pickle.load(
-    open(os.path.join(models_dir, "liver.sav"), "rb")
+    open(os.path.join(models_dir, "liver.joblib"), "rb")
 )
 
 # sidebar for navigation
@@ -802,3 +840,24 @@ if selected == "Liver Disease Prediction":
                 liver_diagnosis = "The person does not have any liver disease."
 
             st.success(liver_diagnosis)
+
+# Disclaimer
+st.markdown(
+    """
+    ---
+    **Disclaimer:**  
+    This content is developed to demonstrate the capabilities of Machine Learning in the field of Healthcare. The text, graphics, images, and content used is general in nature and for informational purposes only and does not constitute medical advice; the content is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always consult your doctor or other qualified healthcare provider with any questions you may have regarding a medical condition.
+    
+    **Made with Streamlit**  
+    **Built & developed by Milan Kumar Sahoo**
+"""
+)
+
+st.markdown(
+    """
+    <div style="text-align:center; font-size:18px;">
+        Made with ❤️ using Streamlit by Milan Kumar Sahoo
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
