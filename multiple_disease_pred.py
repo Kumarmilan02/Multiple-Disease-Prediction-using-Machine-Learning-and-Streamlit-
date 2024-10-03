@@ -120,8 +120,8 @@ with st.sidebar:
 
 # Diabetes Prediction Page
 if selected == "Diabetes Prediction":
-
-  st.title("Diabetes Disease Assessment")
+    
+    st.title("Diabetes Disease Assessment")
     # Create Tabs
     tab1, tab2, tab3 = st.tabs(["About", "Make Prediction", "Remedies"])
 
