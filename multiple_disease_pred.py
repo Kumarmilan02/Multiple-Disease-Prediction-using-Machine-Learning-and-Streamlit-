@@ -58,33 +58,35 @@ working_dir = os.path.dirname(os.path.abspath(__file__))
 models_dir = os.path.join(working_dir, "DatasetModel")  # Adjust the directory name if needed
 
 # Loading the saved models
-diabetes_model = pickle.load(
-    open(os.path.join(models_dir, "diabetes_model.joblib"), "rb")
+diabetes_model = joblib.load(
+    os.path.join(models_dir, "diabetes_model.joblib")
 )
 
-heart_disease_model = pickle.load(
-    open(os.path.join(models_dir, "heart_disease_model.joblib"), "rb")
+heart_disease_model = joblib.load(
+    os.path.join(models_dir, "heart_disease_model.joblib")
 )
 
-parkinsons_model = pickle.load(
-    open(os.path.join(models_dir, "parkinsons_model.joblib"), "rb")
+parkinsons_model = joblib.load(
+    os.path.join(models_dir, "parkinsons_model.joblib")
 )
 
-breast_cancer = pickle.load(
-    open(os.path.join(models_dir, "breast_cancer.joblib"), "rb")
+breast_cancer_model = joblib.load(
+    os.path.join(models_dir, "breast_cancer.joblib")
 )
 
-lung_cancer = pickle.load(
-    open(os.path.join(models_dir, "lung_cancer_model.joblib"), "rb")
+lung_cancer_model = joblib.load(
+    os.path.join(models_dir, "lung_cancer_model.joblib")
 )
 
-kidney_disease_model = pickle.load(
-    open(os.path.join(models_dir, "kidney_disease.joblib"), "rb")
+kidney_disease_model = joblib.load(
+    os.path.join(models_dir, "kidney_disease.joblib")
 )
 
-liver_disease_model = pickle.load(
-    open(os.path.join(models_dir, "liver.joblib"), "rb")
+liver_disease_model = joblib.load(
+    os.path.join(models_dir, "liver.joblib")
 )
+
+
 
 # sidebar for navigation
 with st.sidebar:
