@@ -51,6 +51,7 @@ def display_welcome():
     )
     st.markdown("---")
 
+display_welcome() 
 
 # Get the working directory of the current script
 working_dir = os.path.dirname(os.path.abspath(__file__))
@@ -120,71 +121,176 @@ with st.sidebar:
 # Diabetes Prediction Page
 if selected == "Diabetes Prediction":
 
-    # Page title
-    st.title("Diabetes Prediction using ML")
+  st.title("Diabetes Disease Assessment")
+    # Create Tabs
+    tab1, tab2, tab3 = st.tabs(["About", "Make Prediction", "Remedies"])
 
-    # Getting the input data from the user
-    col1, col2, col3 = st.columns(3)
+    # Tab 1: About
+    with tab1:
+        st.header("What is Diabetes?")
+        st.write(
+            """
+    - **Definition**: A metabolic disease that leads to high blood sugar levels.
+    - **Insulin Role**: Insulin is a hormone that facilitates the movement of sugar from the blood into cells for energy storage and usage.
+    - **Malfunction**: Diabetes occurs when the body either doesn't produce enough insulin or cannot effectively utilize the insulin produced.
+    - **Consequences**: Untreated high blood sugar can damage nerves, eyes, kidneys, and other organs.
+    - **Management**: Educating oneself about diabetes and taking proactive measures can help manage and prevent complications.
 
-    with col1:
-        Pregnancies = st.text_input("Number of Pregnancies")
+    ### Health Parameters for Diabetes Prediction (Only for Females)
+    1. **Number of Pregnancies**: Multiple pregnancies can increase insulin resistance and the risk of gestational diabetes, which may lead to type 2 diabetes later.
+    2. **Triceps Skin Fold Thickness (mm)**: Higher skin fold thickness indicates increased body fat, which can lead to insulin resistance.
+    3. **Diabetes Pedigree Function**: A family history of diabetes increases the likelihood of developing the condition due to genetic factors.
+    4. **Plasma Glucose Concentration**: Elevated glucose levels indicate impaired insulin function, a key factor in diagnosing diabetes.
+    5. **2-Hour Serum Insulin (mu U/ml)**: Insulin levels help assess how well the body responds to glucose, influencing diabetes risk.
+    6. **Age (years)**: Older age increases the risk of developing type 2 diabetes due to declining insulin sensitivity and beta-cell function.
+    7. **Diastolic Blood Pressure (mm Hg)**: High diastolic blood pressure is associated with insulin resistance and increased risk of cardiovascular complications in diabetics.
+    8. **Body Mass Index (BMI)**: A higher BMI is linked to increased fat accumulation, leading to greater insulin resistance and a higher risk of type 2 diabetes.
 
-    with col2:
-        Glucose = st.text_input("Plasma Glucose Concentration (2 hours after an oral glucose tolerance test)")
+    ### Types of Diabetes
+    1. **Type 1 Diabetes**: 
+    - An autoimmune disease that destroys insulin-producing cells in the pancreas.
+    - Cause of immune system attack is unclear.
+    
+    2. **Type 2 Diabetes**:
+    - The most common type, accounting for 90-95% of diabetes cases.
+    - Occurs when the body becomes resistant to insulin, causing sugar to build up in the blood.
 
-    with col3:
-        BloodPressure = st.text_input("Diastolic Blood Pressure (mm Hg)")
+    3. **Type 1.5 Diabetes (LADA)**:
+    - Also known as latent autoimmune diabetes in adults.
+    - Gradual onset in adulthood, similar to type 2 diabetes.
+    - Not treatable by diet or lifestyle changes.
 
-    with col1:
-        SkinThickness = st.text_input("Triceps Skin Fold Thickness (mm)")
+    4. **Gestational Diabetes**:
+    - High blood sugar that occurs during pregnancy due to insulin-blocking hormones from the placenta.
 
-    with col2:
-        Insulin = st.text_input("2-Hour Serum Insulin (mu U/ml)")
+    5. **Diabetes Insipidus**:
+    - A rare condition not related to diabetes mellitus.
+    - Characterized by excessive fluid removal by kidneys.
 
-    with col3:
-        BMI = st.text_input("Body Mass Index (weight in kg/(height in m)^2)")
+    ### Symptoms of Diabetes
+    - **General Symptoms**:
+    - Increased hunger
+    - Increased thirst
+    - Weight loss
+    - Frequent urination
+    - Blurry vision
+    - Extreme fatigue
+    - Sores that do not heal
 
-    with col1:
-        DiabetesPedigreeFunction = st.text_input("Diabetes Pedigree Function")
+    - **Symptoms in Men**:
+    - Decreased sex drive
+    - Erectile dysfunction
+    - Poor muscle strength
 
-    with col2:
-        Age = st.text_input("Age (years)")
+    - **Symptoms in Women**:
+    - Vaginal dryness
+    - Urinary tract infections
+    - Yeast infections
+    - Dry, itchy skin
 
-    # Code for Prediction
-    diab_diagnosis = ""
+    - **Gestational Diabetes Symptoms**:
+    - Often asymptomatic, but may include increased thirst or urination in rare cases.
+    - Usually detected during routine blood tests.
 
-    # Creating a button for Prediction
-    if st.button("Diabetes Test Result"):
-        
-        # Check if any input is empty
-        if (not Pregnancies or not Glucose or not BloodPressure or not SkinThickness or 
-            not Insulin or not BMI or not DiabetesPedigreeFunction or not Age):
-            st.error("Please fill all the boxes before making a prediction.")
-        else:
-            try:
-                user_input = [
-                    float(Pregnancies),
-                    float(Glucose),
-                    float(BloodPressure),
-                    float(SkinThickness),
-                    float(Insulin),
-                    float(BMI),
-                    float(DiabetesPedigreeFunction),
-                    float(Age),
-                ]
+    ### Conclusion
+    - **Detection**: Symptoms can be mild and may go unnoticed initially.
+    - **Action**: Recognizing symptoms early can prompt timely medical consultation.
+        """
+        )
+        st.markdown(
+            "[Learn More](https://my.clevelandclinic.org/health/diseases/7104-diabetes)"
+        )
 
-                diab_prediction = diabetes_model.predict([user_input])
+    # Tab 2: Make Prediction
+    with tab2:
+        st.header("Diabetes Prediction (Only for Females)")
+        st.write(
+            "Enter the following health parameters to predict if you are diabetic:"
+        )
 
-                if diab_prediction[0] == 1:
-                    diab_diagnosis = "The person is diabetic"
-                else:
-                    diab_diagnosis = "The person is not diabetic"
+        # Collect input data
+        col1, col2, col3 = st.columns(3)
 
-                st.success(diab_diagnosis)
+        with col1:
+            Pregnancies = st.text_input("Number of Pregnancies")
 
-            except ValueError:
-                st.error("Please enter valid numeric values in all fields.")
+        with col2:
+            Glucose = st.text_input("Plasma Glucose Concentration")
 
+        with col3:
+            BloodPressure = st.text_input("Diastolic Blood Pressure (mm Hg)")
+
+        with col1:
+            SkinThickness = st.text_input("Triceps Skin Fold Thickness (mm)")
+
+        with col2:
+            Insulin = st.text_input("2-Hour Serum Insulin (mu U/ml)")
+
+        with col3:
+            BMI = st.text_input("Body Mass Index (weight in kg/(height in m)^2)")
+
+        with col1:
+            DiabetesPedigreeFunction = st.text_input("Diabetes Pedigree Function")
+
+        with col2:
+            Age = st.text_input("Age (years)")
+
+        # Prediction button
+        if st.button("Get Diabetes Prediction"):
+            # Check if any input is empty
+            if (
+                not Pregnancies
+                or not Glucose
+                or not BloodPressure
+                or not SkinThickness
+                or not Insulin
+                or not BMI
+                or not DiabetesPedigreeFunction
+                or not Age
+            ):
+                st.error("Please fill all the boxes before making a prediction.")
+            else:
+                try:
+                    # Collect input data and make prediction
+                    user_input = [
+                        float(Pregnancies),
+                        float(Glucose),
+                        float(BloodPressure),
+                        float(SkinThickness),
+                        float(Insulin),
+                        float(BMI),
+                        float(DiabetesPedigreeFunction),
+                        float(Age),
+                    ]
+
+                    diab_prediction = diabetes_model.predict([user_input])
+
+                    if diab_prediction[0] == 1:
+                        diab_diagnosis = "The person is diabetic"
+                    else:
+                        diab_diagnosis = "The person is not diabetic"
+
+                    st.success(diab_diagnosis)
+
+                except ValueError:
+                    st.error("Please enter valid numeric values in all fields.")
+
+        st.warning(
+            "**Note:** This prediction is designed specifically for females based on the input parameters."
+        )
+
+    # Tab 3: Remedies
+    with tab3:
+        st.header("Remedies and Treatment for Diabetes")
+        st.write(
+            """
+        Managing diabetes involves lifestyle changes like regular exercise, maintaining a balanced diet, and monitoring blood sugar levels. 
+        Medications like insulin and other drugs may also be required. Consult a healthcare provider for a tailored treatment plan.
+        """
+        )
+        st.markdown(
+            "[Learn More](https://www.stamfordhealth.org/healthflash-blog/diabetes-and-endocrine/type-2-diabetes-natural-remedies/)"
+        )
 
 # Heart Disease Prediction Page
 if selected == 'Heart Disease Prediction':
