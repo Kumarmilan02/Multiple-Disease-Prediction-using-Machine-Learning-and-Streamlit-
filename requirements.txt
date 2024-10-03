@@ -5,4 +5,6 @@ streamlit-option-menu==0.3.6
 matplotlib
 pandas
 joblib
+streamlit-lottie
+
 
