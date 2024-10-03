@@ -118,7 +118,48 @@ with st.sidebar:
 
 # Diabetes Prediction Page
 if selected == "Diabetes Prediction":
-    display_welcome() 
+    def load_lottie_url(url):
+        response = requests.get(url)
+        if response.status_code == 200:
+            return response.json()
+        st.error(f"Failed to load Lottie animation from {url}")
+        return None
+
+    # Left, middle, and right Lottie animation URLs
+    left_animation_url = ("https://lottie.host/4ab409b6-8297-4161-9c0d-c531ab8b39a9/agpua2BZms.json")
+    middle_animation_url = ("https://lottie.host/20964f4c-483a-4349-a93b-9b417c6f20c7/mPKJTJllTE.json")
+    right_animation_url = ("https://lottie.host/4ab409b6-8297-4161-9c0d-c531ab8b39a9/agpua2BZms.json")  # Same as middle
+
+    # Create a flex container using Streamlit's layout
+    col1, col2, col3 = st.columns(3)  # 3 equal columns
+
+    # Set width and height for Lottie animations
+    animation_width = 150
+    animation_height = 150
+
+    # Left animation
+    with col1:
+        st_lottie(
+            load_lottie_url(left_animation_url),
+            width=animation_width,
+            height=animation_height,
+        )
+
+    # Middle animation
+    with col2:
+        st_lottie(
+            load_lottie_url(middle_animation_url),
+            width=animation_width,
+            height=animation_height,
+        )
+
+    # Right animation
+    with col3:
+        st_lottie(
+            load_lottie_url(right_animation_url),
+            width=animation_width,
+            height=animation_height,
+        )
     st.title("Diabetes Disease Assessment")
     # Create Tabs
     tab1, tab2, tab3 = st.tabs(["About", "Make Prediction", "Remedies"])
