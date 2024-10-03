@@ -14,8 +14,6 @@ import base64
 import requests
 from joblib import load
 
-# Set page configuration
-st.set_page_config(page_title="Health Assistant", layout="wide", page_icon="🧑‍⚕️")
 
 # Function to load Lottie animations from a URL
 def load_lottie_url(url):
