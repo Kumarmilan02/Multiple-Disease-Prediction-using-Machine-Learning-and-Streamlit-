@@ -617,11 +617,11 @@ def parkinsons_page():
             """
         While there is currently no cure for Parkinson's disease, various treatments and remedies can help manage symptoms and improve quality of life. Medications are often the first line of treatment, with levodopa being the most effective. Levodopa is converted to dopamine in the brain, helping to alleviate motor symptoms. Other medications, such as dopamine agonists and MAO-B inhibitors, may also be prescribed to help manage symptoms.
 
-In addition to medication, lifestyle modifications can be beneficial. Regular physical exercise is crucial, as it can improve mobility, flexibility, and balance. Engaging in activities like walking, swimming, or tai chi can enhance overall physical well-being. Occupational and physical therapy can provide personalized strategies to manage daily activities and maintain independence. Furthermore, speech therapy may be useful for those experiencing communication difficulties.
+        In addition to medication, lifestyle modifications can be beneficial. Regular physical exercise is crucial, as it can improve mobility, flexibility, and balance. Engaging in activities like walking, swimming, or tai chi can enhance overall physical well-being. Occupational and physical therapy can provide personalized strategies to manage daily activities and maintain independence. Furthermore, speech therapy may be useful for those experiencing communication difficulties.
 
-Diet also plays a significant role in managing Parkinson's disease. A well-balanced diet rich in fruits, vegetables, whole grains, and lean proteins can support overall health. Some studies suggest that antioxidants, found in foods like berries and green leafy vegetables, may help protect brain cells.
+        Diet also plays a significant role in managing Parkinson's disease. A well-balanced diet rich in fruits, vegetables, whole grains, and lean proteins can support overall health. Some studies suggest that antioxidants, found in foods like berries and green leafy vegetables, may help protect brain cells.
 
-In more advanced stages of Parkinson's disease, surgical options like deep brain stimulation (DBS) may be considered. This involves implanting a device that sends electrical impulses to specific brain regions, reducing symptoms and improving quality of life. Overall, a comprehensive approach involving medication, lifestyle changes, and support can significantly enhance the management of Parkinson's disease.
+        In more advanced stages of Parkinson's disease, surgical options like deep brain stimulation (DBS) may be considered. This involves implanting a device that sends electrical impulses to specific brain regions, reducing symptoms and improving quality of life. Overall, a comprehensive approach involving medication, lifestyle changes, and support can significantly enhance the management of Parkinson's disease.
         """
         )
         st.markdown(
@@ -1079,9 +1079,9 @@ def lung_cancer_page():
             """
         ### Remedies and Treatment for Lung Cancer
 
-The treatment for lung cancer typically depends on the type and stage of the disease. Common treatment options include surgery to remove tumors, chemotherapy to kill cancer cells, and radiation therapy to target and shrink tumors. Targeted therapies and immunotherapy are also becoming increasingly important in the treatment of lung cancer, especially for specific genetic mutations and advanced stages of the disease. Clinical trials may offer access to innovative therapies that are still under investigation.
+        The treatment for lung cancer typically depends on the type and stage of the disease. Common treatment options include surgery to remove tumors, chemotherapy to kill cancer cells, and radiation therapy to target and shrink tumors. Targeted therapies and immunotherapy are also becoming increasingly important in the treatment of lung cancer, especially for specific genetic mutations and advanced stages of the disease. Clinical trials may offer access to innovative therapies that are still under investigation.
 
-In addition to medical treatments, supportive care plays a vital role in managing lung cancer. This can include palliative care to alleviate symptoms and improve quality of life. Patients are often encouraged to adopt healthy lifestyle changes, such as quitting smoking, eating a balanced diet rich in fruits and vegetables, and engaging in regular physical activity, which can help enhance overall well-being and recovery. Regular follow-up care is essential for monitoring the disease and managing any side effects of treatment.
+        In addition to medical treatments, supportive care plays a vital role in managing lung cancer. This can include palliative care to alleviate symptoms and improve quality of life. Patients are often encouraged to adopt healthy lifestyle changes, such as quitting smoking, eating a balanced diet rich in fruits and vegetables, and engaging in regular physical activity, which can help enhance overall well-being and recovery. Regular follow-up care is essential for monitoring the disease and managing any side effects of treatment.
         """
         )
         st.markdown(
@@ -1301,7 +1301,7 @@ def kidney_disease_page():
             """
         ### Remedies and Treatment for Chronic Kidney Disease
 
-Managing Chronic Kidney Disease involves a multifaceted approach that focuses on slowing disease progression and alleviating symptoms. Key lifestyle changes include adopting a kidney-friendly diet, which typically involves reducing sodium, phosphorus, and potassium intake while ensuring adequate protein consumption. Staying hydrated and maintaining a healthy weight are also important. Regular physical activity can help manage blood pressure and improve overall health. Medication may be prescribed to control underlying conditions such as diabetes and hypertension, as well as to address symptoms like anemia or high cholesterol levels. In advanced stages of CKD, treatment options may include dialysis to artificially filter waste from the blood or kidney transplantation for those with end-stage renal disease. Regular monitoring and collaboration with healthcare providers are essential for effectively managing CKD and improving quality of life.
+    Managing Chronic Kidney Disease involves a multifaceted approach that focuses on slowing disease progression and alleviating symptoms. Key lifestyle changes include adopting a kidney-friendly diet, which typically involves reducing sodium, phosphorus, and potassium intake while ensuring adequate protein consumption. Staying hydrated and maintaining a healthy weight are also important. Regular physical activity can help manage blood pressure and improve overall health. Medication may be prescribed to control underlying conditions such as diabetes and hypertension, as well as to address symptoms like anemia or high cholesterol levels. In advanced stages of CKD, treatment options may include dialysis to artificially filter waste from the blood or kidney transplantation for those with end-stage renal disease. Regular monitoring and collaboration with healthcare providers are essential for effectively managing CKD and improving quality of life.
         """
         )
         st.markdown(
@@ -1452,9 +1452,9 @@ def liver_disease_page():
             """
         ### Remedies and Treatments for Liver Disease
 
-The treatment for liver disease depends on the underlying cause and severity of the condition. Lifestyle modifications play a critical role in managing liver health. A balanced diet rich in fruits, vegetables, whole grains, and lean proteins can support liver function. Reducing alcohol intake is essential, as excessive drinking can exacerbate liver damage. Regular exercise helps maintain a healthy weight, as obesity is a significant risk factor for liver disease. 
+    The treatment for liver disease depends on the underlying cause and severity of the condition. Lifestyle modifications play a critical role in managing liver health. A balanced diet rich in fruits, vegetables, whole grains, and lean proteins can support liver function. Reducing alcohol intake is essential, as excessive drinking can exacerbate liver damage. Regular exercise helps maintain a healthy weight, as obesity is a significant risk factor for liver disease. 
 
-In cases of viral hepatitis, antiviral medications may be prescribed to reduce inflammation and prevent further liver damage. For fatty liver disease, lifestyle changes, including weight loss and dietary adjustments, are often recommended. In advanced cases, such as cirrhosis or liver cancer, more intensive treatments like medications, liver transplant, or surgery may be necessary. Monitoring liver function through regular check-ups is crucial for individuals at risk, ensuring timely intervention and maintaining overall liver health.
+    In cases of viral hepatitis, antiviral medications may be prescribed to reduce inflammation and prevent further liver damage. For fatty liver disease, lifestyle changes, including weight loss and dietary adjustments, are often recommended. In advanced cases, such as cirrhosis or liver cancer, more intensive treatments like medications, liver transplant, or surgery may be necessary. Monitoring liver function through regular check-ups is crucial for individuals at risk, ensuring timely intervention and maintaining overall liver health.
         """
         )
         st.markdown(
