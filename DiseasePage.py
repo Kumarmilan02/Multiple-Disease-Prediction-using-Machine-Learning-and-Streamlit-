@@ -4,6 +4,7 @@ import pickle
 import streamlit as st
 from PIL import Image
 import base64
+import joblib
 import requests
 from streamlit_lottie import st_lottie
 from joblib import load
