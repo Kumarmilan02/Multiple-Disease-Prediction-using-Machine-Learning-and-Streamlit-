@@ -100,10 +100,11 @@ def disease_prediction_page():
                 f'<img src="data:image/jpeg;base64,{get_base64_image(image_path)}" class="circle-image" alt="{disease}">', 
                 unsafe_allow_html=True
             )
-            button_key = f"Go For Prediction {disease}"
-            if st.button(f"Go For Prediction {disease}", key=button_key):
-                st.session_state.current_page = "Disease Prediction"
-                st.session_state.current_paged = disease  # Switch to the selected disease page
+            st.markdown(f"<h5 style='text-align: center;'>{disease}</h5>", unsafe_allow_html=True)
+            # button_key = f"Go For Prediction {disease}"
+            # if st.button(f"Go For Prediction {disease}", key=button_key):
+            #     st.session_state.current_page = "Disease Prediction"
+            #     st.session_state.current_paged = disease  # Switch to the selected disease page
 
 def home_page():
     st.write("Learn more about maintaining a healthy lifestyle by exploring these key topics:")
@@ -140,16 +141,16 @@ def home_page():
                 st.session_state.current_page = "Home"  # Switch to Home page
                 st.session_state.current_pageh = topic  # Set the current topic for further display
 
-def navigation_buttons(page_type):
-    col1, col2 = st.columns([4, 1])
-    with col2:
-        if st.button(f"Go Back to {'Home Page' if page_type == 'home' else 'Disease Prediction Page'}", key="go_back_button"):
-            if page_type == 'home':
-                st.session_state.current_page = "Home"
-                st.session_state.current_pageh = "Home"  # Reset topic
-            else:
-                st.session_state.current_page = "Disease Prediction"
-                st.session_state.current_paged = "disease_prediction_page"  # Reset to the disease prediction page
+# def navigation_buttons(page_type):
+#     col1, col2 = st.columns([4, 1])
+#     with col2:
+#         if st.button(f"Go Back to {'Home Page' if page_type == 'home' else 'Disease Prediction Page'}", key="go_back_button"):
+#             if page_type == 'home':
+#                 st.session_state.current_page = "Home"
+#                 st.session_state.current_pageh = "Home"  # Reset topic
+#             else:
+#                 st.session_state.current_page = "Disease Prediction"
+#                 st.session_state.current_paged = "disease_prediction_page"  # Reset to the disease prediction page
 
 # Sidebar navigation
 if 'current_page' not in st.session_state:
@@ -181,42 +182,74 @@ with st.sidebar:
 if st.session_state.current_page == "Home":
     display_welcome()
     home_page()
-    if st.session_state.current_pageh in ["Exercise", "Mental Health", "Regular Checkups", "Hydration", "Balanced Diet"]:
-        if st.session_state.current_pageh == "Exercise":
-            exercise_page()
-        elif st.session_state.current_pageh == "Mental Health":
-            mental_health_page()
-        elif st.session_state.current_pageh == "Regular Checkups":
-            checkup_page()
-        elif st.session_state.current_pageh == "Hydration":
-            hydration_page()
-        elif st.session_state.current_pageh == "Balanced Diet":
-            balanced_diet_page()
-        navigation_buttons(page_type='home')  # Navigation button for home
-    # else:
-    #     st.write("Page not found.")
+    # Sub-navigation for health topics
+    if 'health_topic' not in st.session_state:
+        st.session_state.health_topic = None
+
+    st.write("Select a health topic:")
+    
+    health_topics = ["Exercise", "Mental Health", "Hydration", "Balanced Diet", "Regular Checkups"]
+    
+    selected_health_topic = st.selectbox("Choose a topic:", health_topics)
+    
+    if selected_health_topic:
+        st.session_state.health_topic = selected_health_topic
+    
+    if st.session_state.health_topic == "Exercise":
+        exercise_page()
+        #navigation_buttons_home()
+    elif st.session_state.health_topic == "Mental Health":
+        mental_health_page()
+        #navigation_buttons_home()
+    elif st.session_state.health_topic == "Hydration":
+        hydration_page()
+        #navigation_buttons_home()
+    elif st.session_state.health_topic == "Balanced Diet":
+        balanced_diet_page()
+        #navigation_buttons_home()
+    elif st.session_state.health_topic == "Regular Checkups":
+        checkup_page()
+        #navigation_buttons_home()
+
 elif st.session_state.current_page == "Disease Prediction":
     display_welcome()
     disease_prediction_page()
-    if st.session_state.current_paged in ["Diabetes", "Heart", "Parkinson", "Breast Cancer", "Kidney", "Liver", "Lungs"]:
-        if st.session_state.current_paged == "Diabetes":
-            diabetes_page()
-        elif st.session_state.current_paged == "Heart":
-            heart_disease_page()
-        elif st.session_state.current_paged == "Parkinson":
-            parkinsons_page()
-        elif st.session_state.current_paged == "Breast Cancer":
-            breast_cancer_page()
-        elif st.session_state.current_paged == "Kidney":
-            kidney_disease_page()
-        elif st.session_state.current_paged == "Liver":
-            liver_disease_page()
-        elif st.session_state.current_paged == "Lungs":
-            lung_cancer_page()
-        navigation_buttons(page_type='disease')  # Navigation button for disease prediction
-    # else:
-    #     st.write("Page not found.")
+    # Sub-navigation for diseases
+    if 'disease_topic' not in st.session_state:
+        st.session_state.disease_topic = None
 
+    st.write("Select a disease topic:")
+    
+    disease_topics = ["Diabetes", "Heart", "Kidney", "Lungs", "Breast Cancer", "Parkinson", "Liver"]
+    
+    selected_disease_topic = st.selectbox("Choose a disease:", disease_topics)
+    
+    if selected_disease_topic:
+        st.session_state.disease_topic = selected_disease_topic
+    
+    if st.session_state.disease_topic == "Diabetes":
+        diabetes_page()
+        #navigation_buttons_disease()
+    elif st.session_state.disease_topic == "Heart":
+        heart_disease_page()
+        #navigation_buttons_disease()
+    elif st.session_state.disease_topic == "Kidney":
+        kidney_disease_page()
+        #navigation_buttons_disease()
+    elif st.session_state.disease_topic == "Lungs":
+        lung_cancer_page()
+        #navigation_buttons_disease()
+    elif st.session_state.disease_topic == "Breast Cancer":
+        breast_cancer_page()
+        #navigation_buttons_disease()
+    elif st.session_state.disease_topic == "Parkinson":
+        parkinsons_page()
+        #navigation_buttons_disease()
+    elif st.session_state.disease_topic == "Liver":
+        liver_disease_page()
+        #navigation_buttons_disease()
+    else:
+        pass
 # Disclaimer
 st.markdown(
     """
