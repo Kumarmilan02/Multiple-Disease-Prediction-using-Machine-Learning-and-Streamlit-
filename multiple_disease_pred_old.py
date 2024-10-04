@@ -13,6 +13,7 @@ from streamlit_lottie import st_lottie
 import joblib
 import base64
 import requests
+from PIL import Image
 from joblib import load
 
 
