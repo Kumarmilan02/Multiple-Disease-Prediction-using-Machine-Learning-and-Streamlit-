@@ -33,7 +33,7 @@ lottie_middle = load_lottie_url("https://lottie.host/05a0c3b0-871a-462b-8a6a-499
 lottie_right = load_lottie_url("https://lottie.host/22289fa4-1f2d-4e6f-9519-b401a851646c/A9C8Brwsy6.json")
 
 
-base_path = os.path.join("Kumarmilan02", "Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit", "images")
+base_path = "images"
 
 # Create animation for the welcome message
 def display_welcome():
@@ -72,13 +72,13 @@ def disease_prediction_page():
     """)
     st.write("""#### Let's go to the different disease predictions:""")
     disease_topics = {
-        "Diabetes": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/dibetics.jpg",
-        "Heart": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/heart.jpg",
-        "Kidney": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/kidney.jpg",
-        "Lungs": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/lungs.jpg",
-        "Breast Cancer": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/breastcancer.jpg",
-        "Parkinson": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/parkinson.jpg",
-        "Liver": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/liver.jpg",
+        "Diabetes": "images/dibetics.jpg",
+        "Heart": "images/heart.jpg",
+        "Kidney": "images/kidney.jpg",
+        "Lungs": "images/lungs.jpg",
+        "Breast Cancer": "images/breastcancer.jpg",
+        "Parkinson": "images/parkinson.jpg",
+        "Liver": "images/liver.jpg",
     }
     css = """
     <style>
