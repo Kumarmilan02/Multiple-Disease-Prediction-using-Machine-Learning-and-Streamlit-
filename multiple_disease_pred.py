@@ -32,6 +32,9 @@ lottie_left = load_lottie_url("https://lottie.host/22289fa4-1f2d-4e6f-9519-b401a
 lottie_middle = load_lottie_url("https://lottie.host/05a0c3b0-871a-462b-8a6a-499b40b9bff3/bkBd4NpFTZ.json")
 lottie_right = load_lottie_url("https://lottie.host/22289fa4-1f2d-4e6f-9519-b401a851646c/A9C8Brwsy6.json")
 
+
+base_path = os.path.join("Kumarmilan02", "Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit", "images")
+
 # Create animation for the welcome message
 def display_welcome():
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column sizes as needed
@@ -69,14 +72,15 @@ def disease_prediction_page():
     """)
     st.write("""#### Let's go to the different disease predictions:""")
 
-    disease_topics = {
-        "Diabetes": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\dibetics.jpg",
-        "Heart": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\heart.jpg",
-        "Kidney": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\kidney.jpg",
-        "Lungs": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\lungs.jpg",
-        "Breast Cancer": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\breastcancer.jpg",
-        "Parkinson": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\parkinson.jpg",
-        "Liver": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\liver.jpg",
+    disease_topics = 
+    {
+        "Diabetes": os.path.join(base_path, "dibetics.jpg"),
+        "Heart": os.path.join(base_path, "heart.jpg"),
+        "Kidney": os.path.join(base_path, "kidney.jpg"),
+        "Lungs": os.path.join(base_path, "lungs.jpg"),
+        "Breast Cancer": os.path.join(base_path, "breastcancer.jpg"),
+        "Parkinson": os.path.join(base_path, "parkinson.jpg"),
+        "Liver": os.path.join(base_path, "liver.jpg"),
     }
 
     css = """
@@ -108,11 +112,11 @@ def home_page():
     st.write("Learn more about maintaining a healthy lifestyle by exploring these key topics:")
 
     topics = {
-        "Exercise": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\image3.jpg",
-        "Mental Health": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\image2.jpg",
-        "Hydration": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\image5.jpg",
-        "Balanced Diet": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\image1.jpg",
-        "Regular Checkups": "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\images\\image4.jpg",
+        "Exercise": os.path.join(base_path, "image3.jpg"),
+        "Mental Health": os.path.join(base_path, "image2.jpg"),
+        "Hydration": os.path.join(base_path, "image5.jpg"),
+        "Balanced Diet": os.path.join(base_path, "image1.jpg"),
+        "Regular Checkups": os.path.join(base_path, "image4.jpg"),
     }
 
     cols = st.columns(len(topics))

@@ -516,8 +516,6 @@ if selected == 'Heart Disease Prediction':
             "[Learn More](https://www.nhs.uk/conditions/coronary-heart-disease/treatment/)"
         )
 
-
-
 # Parkinson's Prediction Page
 if selected == "Parkinsons Prediction":
 

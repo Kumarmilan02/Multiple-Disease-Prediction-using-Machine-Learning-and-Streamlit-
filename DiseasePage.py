@@ -8,39 +8,39 @@ import requests
 from streamlit_lottie import st_lottie
 from joblib import load
 
-# getting the working directory of the main.py
+# Get the working directory of the current script
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
+# Define the path to the models
+models_dir = os.path.join(working_dir, "DatasetModel")  # Adjust the directory name if needed
 
-# loading the saved models
-
-# Loading the saved models using joblib
-diabetes_model = load(
-    "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\Dataset_Joblib\\diabetes_model.joblib"
+# Loading the saved models
+diabetes_model = joblib.load(
+    os.path.join(models_dir, "diabetes_model.joblib")
 )
 
-heart_disease_model = load(
-    "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\Dataset_Joblib\\heart_disease_model.joblib"
+heart_disease_model = joblib.load(
+    os.path.join(models_dir, "heart_disease_model.joblib")
 )
 
-parkinsons_model = load(
-    "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\Dataset_Joblib\\parkinsons_model.joblib"
+parkinsons_model = joblib.load(
+    os.path.join(models_dir, "parkinsons_model.joblib")
 )
 
-breast_cancer_model = load(
-    "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\Dataset_Joblib\\breast_cancer.joblib"
+breast_cancer_model = joblib.load(
+    os.path.join(models_dir, "breast_cancer.joblib")
 )
 
-lung_cancer_model = load(
-    "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\Dataset_Joblib\\lung_cancer_model.joblib"
+lung_cancer_model = joblib.load(
+    os.path.join(models_dir, "lung_cancer_model.joblib")
 )
 
-kidney_disease_model = load(
-    "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\Dataset_Joblib\\kidney_disease.joblib"
+kidney_disease_model = joblib.load(
+    os.path.join(models_dir, "kidney_disease.joblib")
 )
 
-liver_disease_model = load(
-    "D:\\2105208_PROGRAM\\ML Project\\Multiple Disease Prediction System\\Dataset_Joblib\\liver.joblib"
+liver_disease_model = joblib.load(
+    os.path.join(models_dir, "liver.joblib")
 )
 
 

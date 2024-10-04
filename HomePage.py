@@ -14,10 +14,13 @@ def get_image_base64(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode()
 
+# Define the base path
+base_path = os.path.join("Kumarmilan02", "Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit", "images")
+
 # Topic-specific pages
 def exercise_page():
     # Set the image path
-    image_path = r"D:\2105208_PROGRAM\ML Project\Multiple Disease Prediction System\images\image7.jpg"
+    image_path = os.path.join(base_path, "image7.jpg")
     st.markdown(
         """
             <div style="display: flex; justify-content: center;">
@@ -81,7 +84,7 @@ def mental_health_page():
     st.write("[Mental Health Programme](http://dghs.gov.in/content/1350_3_NationalMentalHealthProgramme.aspx)")
 
 def checkup_page():
-    image_path = r"D:\2105208_PROGRAM\ML Project\Multiple Disease Prediction System\images\image8.jpg"
+    image_path = os.path.join(base_path, "image8.jpg")
     st.markdown(
         """
             <div style="display: flex; justify-content: center;">
@@ -113,7 +116,7 @@ def checkup_page():
     st.write("[Checkup Recommendations](https://mohfw.gov.in/)")
 
 def hydration_page():
-    image_path = r"D:\2105208_PROGRAM\ML Project\Multiple Disease Prediction System\images\image9.jpg"
+    image_path = os.path.join(base_path, "image9.jpg")
     st.markdown(
         """
             <div style="display: flex; justify-content: center;">
@@ -145,7 +148,7 @@ def hydration_page():
     st.write("[Hydration Tips](https://www.ncoa.org/article/10-reasons-why-hydration-is-important/)")
 
 def balanced_diet_page():
-    image_path = r"D:\2105208_PROGRAM\ML Project\Multiple Disease Prediction System\images\image10.jpg"
+    image_path = os.path.join(base_path, "image10.jpg")
     st.markdown(
         """
             <div style="display: flex; justify-content: center;">
