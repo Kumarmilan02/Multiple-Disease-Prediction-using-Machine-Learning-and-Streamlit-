@@ -73,13 +73,13 @@ def disease_prediction_page():
     st.write("""#### Let's go to the different disease predictions:""")
 
     disease_topics = {
-    "Diabetes": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/dibetics.jpg",
-    "Heart": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/heart.jpg",
-    "Kidney": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/kidney.jpg",
-    "Lungs": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/lungs.jpg",
-    "Breast Cancer": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/breastcancer.jpg",
-    "Parkinson": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/parkinson.jpg",
-    "Liver": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/liver.jpg",
+        "Diabetes": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/dibetics.jpg",
+        "Heart": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/heart.jpg",
+        "Kidney": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/kidney.jpg",
+        "Lungs": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/lungs.jpg",
+        "Breast Cancer": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/breastcancer.jpg",
+        "Parkinson": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/parkinson.jpg",
+        "Liver": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/liver.jpg",
     }
 
 
