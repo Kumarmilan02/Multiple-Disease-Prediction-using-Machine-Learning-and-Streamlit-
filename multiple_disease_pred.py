@@ -71,18 +71,15 @@ def disease_prediction_page():
         6. **Resolution or Chronicity**: With treatment or the body's immune response, the disease may resolve. If untreated, some diseases can become chronic or lead to complications.
     """)
     st.write("""#### Let's go to the different disease predictions:""")
-
-    disease_topics = 
-    {
-        "Diabetes": os.path.join(base_path, "dibetics.jpg"),
-        "Heart": os.path.join(base_path, "heart.jpg"),
-        "Kidney": os.path.join(base_path, "kidney.jpg"),
-        "Lungs": os.path.join(base_path, "lungs.jpg"),
-        "Breast Cancer": os.path.join(base_path, "breastcancer.jpg"),
-        "Parkinson": os.path.join(base_path, "parkinson.jpg"),
-        "Liver": os.path.join(base_path, "liver.jpg"),
+    disease_topics = {
+        "Diabetes": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/dibetics.jpg",
+        "Heart": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/heart.jpg",
+        "Kidney": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/kidney.jpg",
+        "Lungs": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/lungs.jpg",
+        "Breast Cancer": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/breastcancer.jpg",
+        "Parkinson": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/parkinson.jpg",
+        "Liver": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/liver.jpg",
     }
-
     css = """
     <style>
     .circle-image {
