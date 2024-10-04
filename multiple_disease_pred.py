@@ -71,7 +71,6 @@ def disease_prediction_page():
         6. **Resolution or Chronicity**: With treatment or the body's immune response, the disease may resolve. If untreated, some diseases can become chronic or lead to complications.
     """)
     st.write("""#### Let's go to the different disease predictions:""")
-
     disease_topics = {
         "Diabetes": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/dibetics.jpg",
         "Heart": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/heart.jpg",
@@ -81,8 +80,6 @@ def disease_prediction_page():
         "Parkinson": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/parkinson.jpg",
         "Liver": "Kumarmilan02/Multiple-Disease-Prediction-using-Machine-Learning-and-Streamlit/images/liver.jpg",
     }
-
-
     css = """
     <style>
     .circle-image {
